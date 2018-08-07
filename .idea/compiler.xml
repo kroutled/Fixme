@@ -6,6 +6,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="fixme-broker" />
+        <module name="fixme-core" />
+        <module name="fixme-market" />
+        <module name="fixme-router" />
         <module name="fixmebroker" />
         <module name="fixmecore" />
         <module name="fixmemarket" />

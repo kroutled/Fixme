@@ -1,32 +1,59 @@
 package co.za.kroutled.fixme.router;
 
 import java.io.IOException;
-import java.net.InetSocketAddress;
-import java.net.SocketAddress;
 import java.nio.ByteBuffer;
-import java.nio.channels.AsynchronousChannel;
+import java.util.concurrent.Future;
 import java.nio.channels.AsynchronousServerSocketChannel;
 import java.nio.channels.AsynchronousSocketChannel;
-import java.nio.channels.CompletionHandler;
-import java.nio.charset.Charset;
-import java.util.concurrent.Future;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.ExecutionException;
+import java.net.InetSocketAddress;
 
 public class Router {
-    public static void main(String[] args) throws Exception {
-        AsynchronousServerSocketChannel server = AsynchronousServerSocketChannel.open();
-        String host = "localhost";
-        int port = 5000;
-        InetSocketAddress socketAddr = new InetSocketAddress(host, port); //creates a socket(ip + port).
-        server.bind(socketAddr); //binds the open asynchronousserversocketchannel to the local address and specified port number.
-        System.out.format("Server is listening at %s%n", socketAddr);
-        Future<AsynchronousSocketChannel> acceptFuture = server.accept(); //allows accepting of connections to the socket from clients etc
-        AsynchronousSocketChannel worker = acceptFuture.get(); //s10, TimeUnit.SECONDS) - if we want a timeout on waiting for a query response from the acceptFuture object;
+    public static void main(String[] args) throws Exception
+    {
+        new Router().go();
     }
 
-    public void runServer()
+    private void go() throws IOException, InterruptedException, ExecutionException
     {
+        AsynchronousServerSocketChannel serverChannel = AsynchronousServerSocketChannel.open();
+        InetSocketAddress hostAddress = new InetSocketAddress("localhost", 5000);
+        serverChannel.bind(hostAddress);
 
+        System.out.println("Server channel bound to port: " + hostAddress.getPort());
+        System.out.println("Waiting for client to connect...");
+
+        Future acceptResult = serverChannel.accept();
+        AsynchronousSocketChannel clientChannel = (AsynchronousSocketChannel) acceptResult.get();
+
+        System.out.println("Messages from client: ");
+
+        if ((clientChannel != null) && (clientChannel.isOpen()))
+        {
+            while (true)
+            {
+                ByteBuffer buffer = ByteBuffer.allocate(32);
+                Future result = clientChannel.read(buffer);
+
+                while (!result.isDone())
+                {
+                    //do nothing
+                }
+
+                buffer.flip();
+                String message = new String(buffer.array()).trim();
+                System.out.println(message);
+
+                if (message.equals("Bye"))
+                {
+                    break;
+                }
+
+                buffer.clear();
+            }
+            clientChannel.close();
+        }
+        serverChannel.close();
     }
 }
 
