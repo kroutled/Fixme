@@ -12,11 +12,11 @@ import co.za.kroutled.fixme.core.Client;
 public class Broker extends Client {
     public static void main(String args[]) throws Exception
     {
-        new Broker(5000);
+        new Broker(5000).run();
     }
 
     Broker(int port) throws Exception
     {
-        super(port);
+        super(port, "localhost");
     }
 }
