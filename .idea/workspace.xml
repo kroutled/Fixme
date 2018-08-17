@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="40cbebb0-6e8c-4cb6-8bee-d67f882bf8dd" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fixme-core/src/main/java/co/za/kroutled/fixme/core/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/fixme-core/src/main/java/co/za/kroutled/fixme/core/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fixme-core/target/classes/co/za/kroutled/fixme/core/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/fixme-core/target/classes/co/za/kroutled/fixme/core/Client.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fixme-router/src/main/java/co/za/kroutled/fixme/router/Router.java" beforeDir="false" afterPath="$PROJECT_DIR$/fixme-router/src/main/java/co/za/kroutled/fixme/router/Router.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -22,11 +20,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fixme-market/pom.xml">
+      <file leaf-file-name="Market.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fixme-market/src/main/java/co/za/kroutled/fixme/market/Market.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="21" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
+            <state relative-caret-position="105">
+              <caret line="7" column="41" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -34,20 +32,11 @@
       <file leaf-file-name="Router.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/fixme-router/src/main/java/co/za/kroutled/fixme/router/Router.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="449">
-              <caret line="74" column="38" lean-forward="true" selection-start-line="74" selection-start-column="38" selection-end-line="74" selection-end-column="38" />
+            <state relative-caret-position="240">
+              <caret line="83" column="31" lean-forward="true" selection-start-line="83" selection-start-column="31" selection-end-line="83" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Market.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fixme-market/src/main/java/co/za/kroutled/fixme/market/Market.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="41" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -67,8 +56,8 @@
       <file leaf-file-name="Client.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fixme-core/src/main/java/co/za/kroutled/fixme/core/Client.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="809">
-              <caret line="102" column="36" lean-forward="true" selection-start-line="102" selection-start-column="36" selection-end-line="102" selection-end-column="36" />
+            <state relative-caret-position="889">
+              <caret line="98" column="8" selection-start-line="98" selection-start-column="8" selection-end-line="98" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1251#1788#0" expanded="true" />
@@ -89,6 +78,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="package-info" />
       </list>
     </option>
   </component>
@@ -320,16 +310,6 @@
             </path>
             <path>
               <item name="fixme" type="58d84e3e:PackageViewProjectNode" />
-              <item name="fixme-core" type="616d4139:PackageViewModuleNode" />
-              <item name="co" type="1f31426a:PackageElementNode" />
-              <item name="za" type="1f31426a:PackageElementNode" />
-              <item name="kroutled" type="1f31426a:PackageElementNode" />
-              <item name="fixme" type="1f31426a:PackageElementNode" />
-              <item name="core" type="1f31426a:PackageElementNode" />
-              <item name="messages" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="fixme" type="58d84e3e:PackageViewProjectNode" />
               <item name="fixme-market" type="616d4139:PackageViewModuleNode" />
             </path>
             <path>
@@ -517,9 +497,9 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Market" />
         <item itemvalue="Application.Broker" />
         <item itemvalue="Application.Router" />
+        <item itemvalue="Application.Market" />
       </list>
     </recent_temporary>
   </component>
@@ -538,12 +518,12 @@
       <workItem from="1534147235996" duration="8641000" />
       <workItem from="1534235660285" duration="2541000" />
       <workItem from="1534409111009" duration="11390000" />
-      <workItem from="1534489482024" duration="4380000" />
+      <workItem from="1534489482024" duration="8009000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38321000" />
+    <option name="totallyTimeSpent" value="41950000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -555,8 +535,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="795" y="0" width="1125" height="1080" extended-state="6" />
-    <editor active="true" />
+    <frame x="1026" y="0" width="894" height="1080" extended-state="6" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32935324" />
@@ -568,11 +547,11 @@
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32935324" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.16517413" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.17910448" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.24676616" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23545706" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.01173709" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -600,9 +579,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/fixme-core/src/main/java/co/za/kroutled/fixme/core/messages/acceptConnection.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/fixme-core/src/main/java/co/za/kroutled/fixme/core/Client.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="960">
@@ -868,13 +844,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fixme-market/src/main/java/co/za/kroutled/fixme/market/Market.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="41" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fixme-core/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
@@ -896,6 +865,9 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/fixme-core/src/main/java/co/za/kroutled/fixme/core/package-info.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/fixme-market/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -903,10 +875,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/fixme-market/src/main/java/co/za/kroutled/fixme/market/Market.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="41" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/fixme-core/src/main/java/co/za/kroutled/fixme/core/Client.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="809">
-          <caret line="102" column="36" lean-forward="true" selection-start-line="102" selection-start-column="36" selection-end-line="102" selection-end-column="36" />
+        <state relative-caret-position="889">
+          <caret line="98" column="8" selection-start-line="98" selection-start-column="8" selection-end-line="98" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1251#1788#0" expanded="true" />
@@ -917,8 +896,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/fixme-router/src/main/java/co/za/kroutled/fixme/router/Router.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="449">
-          <caret line="74" column="38" lean-forward="true" selection-start-line="74" selection-start-column="38" selection-end-line="74" selection-end-column="38" />
+        <state relative-caret-position="240">
+          <caret line="83" column="31" lean-forward="true" selection-start-line="83" selection-start-column="31" selection-end-line="83" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

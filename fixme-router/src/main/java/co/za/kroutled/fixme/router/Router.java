@@ -8,10 +8,16 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.codec.string.StringEncoder;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.HashMap;
+
 public class Router implements Runnable {
 
     private int port;
     private String clientType;
+    private static HashMap<Integer, ChannelHandlerContext> routingTable = new HashMap<>();
 
     public static void main(String[] args) throws Exception
     {
@@ -68,13 +74,15 @@ public class Router implements Runnable {
         }
     }
 
+
     class ServerHandler extends ChannelInboundHandlerAdapter
     {
         @Override
-        public void channelRead(ChannelHandlerContext ctx, Object msg) {
+        public void channelRead(ChannelHandlerContext ctx, Object msg) throws IOException{
             System.out.println(msg + " from " + ctx.channel().remoteAddress());
             ctx.writeAndFlush("Message has been received");
             newConnection(ctx);
+            //showTable();
         }
 
         @Override
@@ -86,6 +94,7 @@ public class Router implements Runnable {
         @Override
         public void handlerRemoved(ChannelHandlerContext ctx) {
             System.out.println("Removed client from server " + ctx.channel().remoteAddress());
+            removeID(ctx);
         }
 
         private void newConnection(ChannelHandlerContext ctx )//, Object msg)
@@ -93,9 +102,40 @@ public class Router implements Runnable {
             String uniqueID = ctx.channel().remoteAddress().toString().substring(11);
             String tempMoB = clientType.equals("Broker") ? "0" : "1";
             uniqueID = uniqueID.concat(tempMoB);
+            routingTable.put(Integer.valueOf(uniqueID), ctx);
             System.out.println("Assigned unique ID " + uniqueID + " to " + ctx.channel().remoteAddress());
             ctx.writeAndFlush("hello " + uniqueID);
         }
+    }
+
+    private void removeID(ChannelHandlerContext ctx)
+    {
+        for (HashMap.Entry<Integer, ChannelHandlerContext> entry : routingTable.entrySet()) {
+            if (entry.getValue() == ctx)
+                routingTable.remove(entry.getKey());
+        }
+    }
+
+    private void showTable() throws IOException {
+        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+        String input = in.readLine();
+        if (input.equals("table"))
+        {
+            if (routingTable != null)
+            {
+                for (HashMap.Entry<Integer, ChannelHandlerContext> entry : routingTable.entrySet())
+                    System.out.println("[" + entry.getKey() + "] - " + isMarketOrBroker(entry.getKey().toString()));
+            }
+        }
+    }
+
+    private String isMarketOrBroker(String id)
+    {
+        if (id.substring(5).equals("0"))
+            return "Broker";
+        else
+            return "Market";
+
     }
 
 }
