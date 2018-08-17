@@ -52,34 +52,55 @@ public class Client implements Runnable{
                     }).option(ChannelOption.SO_REUSEADDR, true);
 
             ChannelFuture f = bootstrap.connect(host, port).sync();
-            Channel channel = f.channel();
-            BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
-
-            while (true)
-            {
-                String lineRead = input.readLine();
-                channel.writeAndFlush(lineRead + "\r\n");
-                System.out.println("in the client loop");
-
-                if (input.readLine().toLowerCase().equals("exit")) {
-                    f.channel().closeFuture().sync();
-                    break;
-                }
-            }
+            f.channel().closeFuture().sync();
         }
         catch (InterruptedException e) { e.printStackTrace(); }
-        catch(IOException e){ e.printStackTrace(); }
         finally { workerGroup.shutdownGracefully(); }
     }
 
     //used to handle all decoded incoming strings from the server
     class clientHandler extends ChannelInboundHandlerAdapter
     {
+
         @Override
-        public void channelActive(ChannelHandlerContext ctx) throws Exception {
-            System.out.println(clientType + " is connecting to router..");
-            ctx.channel().writeAndFlush("typed");
+        public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
+            System.out.println(msg);
         }
 
+        @Override
+        public void channelActive(ChannelHandlerContext ctx) {
+            System.out.println(clientType + " is connecting to router..");
+            ctx.writeAndFlush("New client added");
+        }
+
+        private String getUserInput() throws Exception
+        {
+            System.out.println("Enter request message of type: [sell || buy] [market id] [instrument] [quantity] [price]");
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+            return reader.readLine();
+        }
+
+        private void writeToChannel(ChannelHandlerContext ctx)
+        {
+            try
+            {
+                String userInput = getUserInput();
+                if (userInput.length() == 0)
+                    throw new Exception("Empty input");
+                ctx.writeAndFlush(userInput);
+            }
+            catch (Exception e)
+            {
+                System.out.println(e.getMessage());
+                writeToChannel(ctx);
+            }
+        }
+
+        @Override
+        public void channelReadComplete(ChannelHandlerContext ctx)
+        {
+            if (clientType.equals("Broker"))
+                writeToChannel(ctx);
+        }
     }
 }

@@ -11,6 +11,7 @@ import io.netty.handler.codec.string.StringEncoder;
 public class Router implements Runnable {
 
     private int port;
+    private String clientType;
 
     public static void main(String[] args) throws Exception
     {
@@ -26,6 +27,7 @@ public class Router implements Runnable {
     public Router(int port)
     {
         this.port = port;
+        this.clientType = port == 5000 ? "Broker" : "Market";
     }
 
     //listens for incoming connections and then hands them off for processing
@@ -69,112 +71,31 @@ public class Router implements Runnable {
     class ServerHandler extends ChannelInboundHandlerAdapter
     {
         @Override
-        public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
+        public void channelRead(ChannelHandlerContext ctx, Object msg) {
             System.out.println(msg + " from " + ctx.channel().remoteAddress());
+            ctx.writeAndFlush("Message has been received");
+            newConnection(ctx);
         }
 
         @Override
-        public void handlerAdded(ChannelHandlerContext ctx) throws Exception
+        public void handlerAdded(ChannelHandlerContext ctx)
         {
             System.out.println("Accepted a connection from " + ctx.channel().remoteAddress());
         }
 
         @Override
-        public void handlerRemoved(ChannelHandlerContext ctx) throws Exception {
+        public void handlerRemoved(ChannelHandlerContext ctx) {
             System.out.println("Removed client from server " + ctx.channel().remoteAddress());
+        }
+
+        private void newConnection(ChannelHandlerContext ctx )//, Object msg)
+        {
+            String uniqueID = ctx.channel().remoteAddress().toString().substring(11);
+            String tempMoB = clientType.equals("Broker") ? "0" : "1";
+            uniqueID = uniqueID.concat(tempMoB);
+            System.out.println("Assigned unique ID " + uniqueID + " to " + ctx.channel().remoteAddress());
+            ctx.writeAndFlush("hello " + uniqueID);
         }
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//    private int port;
-//    private String clientType;
-//    //private HashMap<Integer, AsynchronousServerSocketChannel> routingtable = new HashMap<>();
-//
-//
-//    public Router(int port)
-//    {
-//        this.port = port;
-//        switch (port) {
-//            case 5000:
-//                clientType = "Broker";
-//                break;
-//            case 5001:
-//                clientType = "Market";
-//                break;
-//
-//        }
-//    }
-//    @Override
-//    public void run()
-//    {
-//
-//
-//    }
-//        try {
-//            AsynchronousServerSocketChannel serverChannel = AsynchronousServerSocketChannel.open();
-//            InetSocketAddress hostAddress = new InetSocketAddress("localhost", this.port);
-//            serverChannel.bind(hostAddress);
-//
-//        System.out.println("Server channel bound to port: " + hostAddress.getPort());
-//        System.out.println("Waiting for " + clientType + " client to connect...");
-//
-//        Future acceptResult = serverChannel.accept();
-//        AsynchronousSocketChannel clientChannel = (AsynchronousSocketChannel) acceptResult.get();
-//
-//        System.out.println("Messages from " + clientType +": " + clientChannel.getRemoteAddress());
-//
-//        if ((clientChannel != null) && (clientChannel.isOpen()))
-//        {
-//            while (true)
-//            {
-//                ByteBuffer buffer = ByteBuffer.allocate(32);
-//                Future result = clientChannel.read(buffer);
-//
-//                while (!result.isDone())
-//                {
-//                    //do nothing
-//                }
-//
-//                buffer.flip();
-//                String message = new String(buffer.array()).trim();
-//                System.out.println(message);
-//                if (message.equals("Bye"))
-//                {
-//                    break;
-//                }
-//
-//                buffer.clear();
-//            }
-//            clientChannel.close();
-//        }
-//        serverChannel.close();
-//        }catch (IOException e)
-//        { e.printStackTrace();}
-//        catch (InterruptedException e)
-//        { e.printStackTrace(); }
-//        catch (ExecutionException e)
-//        { e.printStackTrace(); }
-//    }
-//}
-
