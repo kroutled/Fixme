@@ -1,5 +1,6 @@
 package co.za.kroutled.fixme.router;
 
+import co.za.kroutled.fixme.core.decoders.*;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -7,7 +8,6 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.codec.string.StringEncoder;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -55,7 +55,8 @@ public class Router implements Runnable {
                         {
                             ChannelPipeline pipeline = ch.pipeline();
 
-                            pipeline.addLast("decoder", new StringDecoder());
+                            //pipeline.addLast("decoder", new StringDecoder());
+                            pipeline.addLast(new Decoder());
                             pipeline.addLast("encoder", new StringEncoder());
                             pipeline.addLast("handler", new ServerHandler());
                         }

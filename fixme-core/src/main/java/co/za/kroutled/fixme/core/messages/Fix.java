@@ -14,7 +14,7 @@ public class Fix {
         this.marketId = marketId;
     }
 
-    Fix(){}
+    public Fix(){}
 
     public String getMessageType()
     {

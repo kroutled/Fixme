@@ -12,7 +12,7 @@ public class acceptConnection extends Fix {
         setChecksum(MD5hash.idHash(String.valueOf(id)));
     }
 
-    acceptConnection() {}
+    public acceptConnection() {}
 
     public int getId()
     {
