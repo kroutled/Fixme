@@ -1,5 +1,11 @@
 package co.za.kroutled.fixme.core;
 
+import co.za.kroutled.fixme.core.decoders.MyDecoder;
+import co.za.kroutled.fixme.core.encoders.*;
+import co.za.kroutled.fixme.core.messages.AcceptConnection;
+import co.za.kroutled.fixme.core.messages.BuyOrSell;
+import co.za.kroutled.fixme.core.messages.Fix;
+import co.za.kroutled.fixme.core.messages.MessageTypes;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -13,9 +19,10 @@ import java.io.InputStreamReader;
 
 public class Client implements Runnable{
 
-    private int port;
-    private String host;
-    private String clientType;
+    private int     port;
+    private String  host;
+    private String  clientType;
+    private int     ID;
 
     public Client(int port, String host) throws Exception {
         this.port = port;
@@ -45,9 +52,12 @@ public class Client implements Runnable{
                         {
                             ChannelPipeline pipeline = ch.pipeline();
 
-                            pipeline.addLast("decoder", new StringDecoder());
-                            pipeline.addLast("encoder", new StringEncoder());
-                            pipeline.addLast("handler", new clientHandler());
+//                            pipeline.addLast("decoder", new StringDecoder());
+//                            pipeline.addLast("encoder", new StringEncoder());
+                            pipeline.addLast(new MyDecoder());
+                            pipeline.addLast(new AcceptConnectionEncoder());
+                            pipeline.addLast(new BoSEncoder());
+                            pipeline.addLast(new clientHandler());
                         }
                     }).option(ChannelOption.SO_REUSEADDR, true);
 
@@ -62,15 +72,29 @@ public class Client implements Runnable{
     class clientHandler extends ChannelInboundHandlerAdapter
     {
 
-        @Override
-        public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-            System.out.println(msg);
-        }
-
+        //as the channel connects successfully and becomes active
         @Override
         public void channelActive(ChannelHandlerContext ctx) {
             System.out.println(clientType + " is connecting to router..");
-            ctx.writeAndFlush("New client added");
+            AcceptConnection msg = new AcceptConnection(MessageTypes.MESSAGE_ACCEPT_CONNECTION.toString(), 0, 0);
+            ctx.writeAndFlush(msg);
+        }
+
+        @Override
+        public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
+            Fix message = (Fix)msg;
+            if (message.getMessageType().equals(MessageTypes.MESSAGE_ACCEPT_CONNECTION))
+            {
+                AcceptConnection conMsg = (AcceptConnection)msg;
+                ID = conMsg.getId();
+                System.out.println(clientType + ": " + ID + " has connected to the router");
+            }
+            else if (message.getMessageType().equals(MessageTypes.MESSAGE_BUY) ||
+                    message.getMessageType().equals(MessageTypes.MESSAGE_SELL))
+            {
+                BuyOrSell BoSMsg = (BuyOrSell)msg;
+                System.out.println("Message sent bro");
+            }
         }
 
         private String getUserInput() throws Exception

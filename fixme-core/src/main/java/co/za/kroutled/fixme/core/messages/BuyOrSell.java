@@ -7,8 +7,8 @@ public class BuyOrSell extends Fix {
     private String  messageAction;
     private int     actionLength;
     private int     id;
-    private String  instrament;
-    private int     instramentLength;
+    private String  instrument;
+    private int     instrumentLength;
     private int     quantity;
     private int     price;
 
@@ -17,7 +17,7 @@ public class BuyOrSell extends Fix {
         super(messageType, marketId);
         this.messageAction = messageAction;
         this.id = id;
-        this.instrament = instrament;
+        this.instrument = instrament;
         this.quantity = quantity;
         this.price = price;
     }
@@ -50,20 +50,20 @@ public class BuyOrSell extends Fix {
         this.id = id;
     }
 
-    public String getInstrament()
+    public String getInstrument()
     {
-        return this.instrament;
+        return this.instrument;
     }
 
-    public void setInstrament(String instrament)
+    public void setInstrument(String instrament)
     {
-        this.instrament = instrament;
-        this.instramentLength = instrament.length();
+        this.instrument = instrament;
+        this.instrumentLength = instrament.length();
     }
 
-    public int getInstramentLength()
+    public int getInstrumentLength()
     {
-        return this.instramentLength;
+        return this.instrumentLength;
     }
 
     public int getQuantity()
@@ -88,7 +88,7 @@ public class BuyOrSell extends Fix {
 
     public String getMD5()
     {
-        return MD5hash.idHash(String.valueOf(id).concat(instrament).concat(String.valueOf(quantity)).concat(messageAction));
+        return MD5hash.idHash(String.valueOf(id).concat(instrument).concat(String.valueOf(quantity)).concat(messageAction));
     }
 
     public void setNewChecksum()
@@ -102,7 +102,7 @@ public class BuyOrSell extends Fix {
                 "ID = " + id +
                 "|MSG_TYPE = '" + getMessageType() + "'" +
                 "|MSG_ACTION = '" + messageAction + "'" +
-                "|INSTRAMENT = '" + instrament + "'" +
+                "|INSTRUMENT = '" + instrument + "'" +
                 "|MARKET_ID = " + getMarketId() +
                 "|QUANTITY = " + quantity +
                 "|PRICE = " + price +

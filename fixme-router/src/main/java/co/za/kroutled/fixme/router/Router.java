@@ -1,6 +1,13 @@
 package co.za.kroutled.fixme.router;
 
-import co.za.kroutled.fixme.core.decoders.*;
+import co.za.kroutled.fixme.core.*;
+import co.za.kroutled.fixme.core.decoders.MyDecoder;
+import co.za.kroutled.fixme.core.encoders.AcceptConnectionEncoder;
+import co.za.kroutled.fixme.core.encoders.BoSEncoder;
+import co.za.kroutled.fixme.core.messages.AcceptConnection;
+import co.za.kroutled.fixme.core.messages.BuyOrSell;
+import co.za.kroutled.fixme.core.messages.Fix;
+import co.za.kroutled.fixme.core.messages.MessageTypes;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -54,11 +61,10 @@ public class Router implements Runnable {
                         public void initChannel (SocketChannel ch) throws Exception
                         {
                             ChannelPipeline pipeline = ch.pipeline();
-
-                            //pipeline.addLast("decoder", new StringDecoder());
-                            pipeline.addLast(new Decoder());
-                            pipeline.addLast("encoder", new StringEncoder());
-                            pipeline.addLast("handler", new ServerHandler());
+                            pipeline.addLast(new MyDecoder());
+                            pipeline.addLast(new AcceptConnectionEncoder());
+                            pipeline.addLast(new BoSEncoder());
+                            pipeline.addLast(new ServerHandler());
                         }
             }).option(ChannelOption.SO_REUSEADDR, true);
 
@@ -79,10 +85,28 @@ public class Router implements Runnable {
     class ServerHandler extends ChannelInboundHandlerAdapter
     {
         @Override
-        public void channelRead(ChannelHandlerContext ctx, Object msg) throws IOException{
-            System.out.println(msg + " from " + ctx.channel().remoteAddress());
-            ctx.writeAndFlush("Message has been received");
-            newConnection(ctx);
+        public void channelRead(ChannelHandlerContext ctx, Object msg) {
+            //System.out.println(msg + " from " + ctx.channel().remoteAddress());
+            Fix message = (Fix)msg;
+            if (message.getMessageType().equals(MessageTypes.MESSAGE_ACCEPT_CONNECTION))
+                newConnection(ctx, msg);
+            else if (message.getMessageType().equals(MessageTypes.MESSAGE_BUY) ||
+                    message.getMessageType().equals(MessageTypes.MESSAGE_SELL))
+            {
+                BuyOrSell BoS = (BuyOrSell)msg;
+                try
+                {
+                    channelFromTable(BoS.getMarketId()).channel().writeAndFlush(BoS);
+                    System.out.println("Making request to Market: " + BoS.getMarketId());
+                }
+                catch (Exception e)
+                {
+                    System.out.println(e.getMessage());
+                    BoS.setMessageAction(MessageTypes.MESSAGE_REJECT.toString());
+                    BoS.setNewChecksum();
+                    ctx.writeAndFlush(BoS);
+                }
+            }
             //showTable();
         }
 
@@ -98,14 +122,18 @@ public class Router implements Runnable {
             removeID(ctx);
         }
 
-        private void newConnection(ChannelHandlerContext ctx )//, Object msg)
+        private void newConnection(ChannelHandlerContext ctx, Object msg)
         {
+            AcceptConnection con = (AcceptConnection)msg;
             String uniqueID = ctx.channel().remoteAddress().toString().substring(11);
             String tempMoB = clientType.equals("Broker") ? "0" : "1";
             uniqueID = uniqueID.concat(tempMoB);
+            con.setId(Integer.valueOf(uniqueID));
+            con.setNewChecksum();
+            ctx.writeAndFlush(ctx);
             routingTable.put(Integer.valueOf(uniqueID), ctx);
             System.out.println("Assigned unique ID " + uniqueID + " to " + ctx.channel().remoteAddress());
-            ctx.writeAndFlush("hello " + uniqueID);
+            ctx.writeAndFlush(con);
         }
     }
 
@@ -137,6 +165,11 @@ public class Router implements Runnable {
         else
             return "Market";
 
+    }
+
+    private ChannelHandlerContext channelFromTable(int id)
+    {
+        return routingTable.get(id);
     }
 
 }
