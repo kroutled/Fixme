@@ -39,7 +39,6 @@ public class Client implements Runnable{
 
     @Override
     public void run() {
-        System.out.println("Client");
         EventLoopGroup workerGroup = new NioEventLoopGroup();
         try {
             //used to set up a channel
@@ -52,8 +51,6 @@ public class Client implements Runnable{
                         {
                             ChannelPipeline pipeline = ch.pipeline();
 
-//                            pipeline.addLast("decoder", new StringDecoder());
-//                            pipeline.addLast("encoder", new StringEncoder());
                             pipeline.addLast(new MyDecoder());
                             pipeline.addLast(new AcceptConnectionEncoder());
                             pipeline.addLast(new BoSEncoder());
@@ -77,20 +74,22 @@ public class Client implements Runnable{
         public void channelActive(ChannelHandlerContext ctx) {
             System.out.println(clientType + " is connecting to router..");
             AcceptConnection msg = new AcceptConnection(MessageTypes.MESSAGE_ACCEPT_CONNECTION.toString(), 0, 0);
+            System.out.println(msg);
             ctx.writeAndFlush(msg);
         }
 
         @Override
-        public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
+        public void channelRead(ChannelHandlerContext ctx, Object msg) {
             Fix message = (Fix)msg;
-            if (message.getMessageType().equals(MessageTypes.MESSAGE_ACCEPT_CONNECTION))
+            System.out.println("bro");
+            if (message.getMessageType().equals(MessageTypes.MESSAGE_ACCEPT_CONNECTION.toString()))
             {
                 AcceptConnection conMsg = (AcceptConnection)msg;
                 ID = conMsg.getId();
                 System.out.println(clientType + ": " + ID + " has connected to the router");
             }
-            else if (message.getMessageType().equals(MessageTypes.MESSAGE_BUY) ||
-                    message.getMessageType().equals(MessageTypes.MESSAGE_SELL))
+            else if (message.getMessageType().equals(MessageTypes.MESSAGE_BUY.toString()) ||
+                    message.getMessageType().equals(MessageTypes.MESSAGE_SELL.toString()))
             {
                 BuyOrSell BoSMsg = (BuyOrSell)msg;
                 System.out.println("Message sent bro");
@@ -111,6 +110,8 @@ public class Client implements Runnable{
                 String userInput = getUserInput();
                 if (userInput.length() == 0)
                     throw new Exception("Empty input");
+                else if (clientType.equals("broker"))
+                    brokerInputHandler(ctx, userInput);
                 ctx.writeAndFlush(userInput);
             }
             catch (Exception e)
@@ -118,6 +119,32 @@ public class Client implements Runnable{
                 System.out.println(e.getMessage());
                 writeToChannel(ctx);
             }
+        }
+
+        //splits up the message from user and splits it up before sending it to the router
+        private void brokerInputHandler(ChannelHandlerContext ctx, String input)
+        {
+            String inputs[] = input.split(" ");
+            try
+            {
+                if (inputs.length != 5)
+                    throw new Exception();
+            }
+            catch(Exception e)
+            {
+                System.out.println("Invalid input");
+            }
+            BuyOrSell outMsg = null;
+            int     marketId = Integer.valueOf(inputs[1]);
+            String  instrument = inputs[2];
+            int     quantity = Integer.valueOf(inputs[3]);
+            int     price = Integer.valueOf(inputs[4]);
+            if (inputs[0].toLowerCase().equals("buy"))
+                outMsg = new BuyOrSell(MessageTypes.MESSAGE_BUY.toString(), marketId, "-", ID, instrument, quantity, price);
+            else if (inputs[0].toLowerCase().equals("sell"))
+                outMsg = new BuyOrSell(MessageTypes.MESSAGE_SELL.toString(), marketId, "-", ID, instrument, quantity, price);
+            outMsg.setNewChecksum();
+            ctx.writeAndFlush(outMsg);
         }
 
         @Override

@@ -61,9 +61,10 @@ public class Router implements Runnable {
                         public void initChannel (SocketChannel ch) throws Exception
                         {
                             ChannelPipeline pipeline = ch.pipeline();
+
                             pipeline.addLast(new MyDecoder());
                             pipeline.addLast(new AcceptConnectionEncoder());
-                            pipeline.addLast(new BoSEncoder());
+//                            pipeline.addLast(new BoSEncoder());
                             pipeline.addLast(new ServerHandler());
                         }
             }).option(ChannelOption.SO_REUSEADDR, true);
@@ -86,12 +87,16 @@ public class Router implements Runnable {
     {
         @Override
         public void channelRead(ChannelHandlerContext ctx, Object msg) {
-            //System.out.println(msg + " from " + ctx.channel().remoteAddress());
             Fix message = (Fix)msg;
-            if (message.getMessageType().equals(MessageTypes.MESSAGE_ACCEPT_CONNECTION))
+            System.out.println(message);
+
+            if (message.getMessageType().equals(MessageTypes.MESSAGE_ACCEPT_CONNECTION.toString())) {
+
                 newConnection(ctx, msg);
-            else if (message.getMessageType().equals(MessageTypes.MESSAGE_BUY) ||
-                    message.getMessageType().equals(MessageTypes.MESSAGE_SELL))
+
+            }
+            else if (message.getMessageType().equals(MessageTypes.MESSAGE_BUY.toString()) ||
+                    message.getMessageType().equals(MessageTypes.MESSAGE_SELL.toString()))
             {
                 BuyOrSell BoS = (BuyOrSell)msg;
                 try
@@ -111,12 +116,6 @@ public class Router implements Runnable {
         }
 
         @Override
-        public void handlerAdded(ChannelHandlerContext ctx)
-        {
-            System.out.println("Accepted a connection from " + ctx.channel().remoteAddress());
-        }
-
-        @Override
         public void handlerRemoved(ChannelHandlerContext ctx) {
             System.out.println("Removed client from server " + ctx.channel().remoteAddress());
             removeID(ctx);
@@ -124,16 +123,17 @@ public class Router implements Runnable {
 
         private void newConnection(ChannelHandlerContext ctx, Object msg)
         {
+            System.out.println("Test");
             AcceptConnection con = (AcceptConnection)msg;
             String uniqueID = ctx.channel().remoteAddress().toString().substring(11);
             String tempMoB = clientType.equals("Broker") ? "0" : "1";
             uniqueID = uniqueID.concat(tempMoB);
             con.setId(Integer.valueOf(uniqueID));
             con.setNewChecksum();
-            ctx.writeAndFlush(ctx);
+            //ctx.writeAndFlush(ctx);
+            ctx.writeAndFlush(con);
             routingTable.put(Integer.valueOf(uniqueID), ctx);
             System.out.println("Assigned unique ID " + uniqueID + " to " + ctx.channel().remoteAddress());
-            ctx.writeAndFlush(con);
         }
     }
 
@@ -145,18 +145,18 @@ public class Router implements Runnable {
         }
     }
 
-    private void showTable() throws IOException {
-        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-        String input = in.readLine();
-        if (input.equals("table"))
-        {
-            if (routingTable != null)
-            {
-                for (HashMap.Entry<Integer, ChannelHandlerContext> entry : routingTable.entrySet())
-                    System.out.println("[" + entry.getKey() + "] - " + isMarketOrBroker(entry.getKey().toString()));
-            }
-        }
-    }
+//    private void showTable() throws IOException {
+//        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+//        String input = in.readLine();
+//        if (input.equals("table"))
+//        {
+//            if (routingTable != null)
+//            {
+//                for (HashMap.Entry<Integer, ChannelHandlerContext> entry : routingTable.entrySet())
+//                    System.out.println("[" + entry.getKey() + "] - " + isMarketOrBroker(entry.getKey().toString()));
+//            }
+//        }
+//    }
 
     private String isMarketOrBroker(String id)
     {

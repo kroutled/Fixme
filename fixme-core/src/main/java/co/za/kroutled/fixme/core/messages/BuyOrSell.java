@@ -12,12 +12,12 @@ public class BuyOrSell extends Fix {
     private int     quantity;
     private int     price;
 
-    BuyOrSell(String messageType, int marketId, String messageAction, int id, String instrament, int quantity, int price)
+    public BuyOrSell(String messageType, int marketId, String messageAction, int id, String instrument, int quantity, int price)
     {
         super(messageType, marketId);
         this.messageAction = messageAction;
         this.id = id;
-        this.instrument = instrament;
+        this.instrument = instrument;
         this.quantity = quantity;
         this.price = price;
     }

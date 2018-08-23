@@ -9,7 +9,7 @@ import io.netty.handler.codec.MessageToByteEncoder;
 import java.nio.charset.Charset;
 
 public class BoSEncoder extends MessageToByteEncoder<BuyOrSell> {
-    private Charset charset = Charset.forName("UTF-8");
+    private final Charset charset = Charset.forName("UTF-8");
 
     @Override
     protected void encode(ChannelHandlerContext ctx, BuyOrSell msg, ByteBuf outMsg)

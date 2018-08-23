@@ -16,8 +16,9 @@ public class MyDecoder extends ReplayingDecoder {
     {
         Fix msg = new Fix();
         msg.setMessageType(inMsg.readCharSequence(inMsg.readInt(), charset).toString());
-        if (msg.getMessageType().equals(MessageTypes.MESSAGE_ACCEPT_CONNECTION))
+        if (msg.getMessageType().equals(MessageTypes.MESSAGE_ACCEPT_CONNECTION.toString()))
         {
+
             AcceptConnection con = new AcceptConnection();
             con.setMessageType(msg.getMessageType());
             con.setId(inMsg.readInt());

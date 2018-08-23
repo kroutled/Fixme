@@ -7,13 +7,14 @@ import io.netty.handler.codec.MessageToByteEncoder;
 import java.nio.charset.Charset;
 
 public class AcceptConnectionEncoder extends MessageToByteEncoder<AcceptConnection> {
-    private Charset charset = Charset.forName("UTF-8");
+    private final Charset charset = Charset.forName("UTF-8");
 
     @Override
     protected void encode(ChannelHandlerContext ctx, AcceptConnection msg, ByteBuf outMsg)
     {
-        if (msg.getMessageType().equals(MessageTypes.MESSAGE_ACCEPT_CONNECTION))
+        if (msg.getMessageType().equals(MessageTypes.MESSAGE_ACCEPT_CONNECTION.toString()))
         {
+            System.out.println("encoding...");
             outMsg.writeInt(msg.getTypeLength());
             outMsg.writeCharSequence(msg.getMessageType(), charset);
             if (msg.getMessageType().equals(MessageTypes.MESSAGE_ACCEPT_CONNECTION.toString()))

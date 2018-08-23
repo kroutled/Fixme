@@ -29,7 +29,8 @@ public class AcceptConnection extends Fix {
         setChecksum(MD5hash.idHash(String.valueOf(id)));
     }
 
-    public String print()
+    @Override
+    public String toString()
     {
         return "MessageAcceptConnection {" +
                 "ID = " + id +
