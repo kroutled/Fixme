@@ -81,7 +81,6 @@ public class Client implements Runnable{
         @Override
         public void channelRead(ChannelHandlerContext ctx, Object msg) {
             Fix message = (Fix)msg;
-            System.out.println("bro");
             if (message.getMessageType().equals(MessageTypes.MESSAGE_ACCEPT_CONNECTION.toString()))
             {
                 AcceptConnection conMsg = (AcceptConnection)msg;
@@ -91,9 +90,46 @@ public class Client implements Runnable{
             else if (message.getMessageType().equals(MessageTypes.MESSAGE_BUY.toString()) ||
                     message.getMessageType().equals(MessageTypes.MESSAGE_SELL.toString()))
             {
+                System.out.println("Message sent bro");
                 BuyOrSell BoSMsg = (BuyOrSell)msg;
                 System.out.println("Message sent bro");
+                if (BoSMsg.getMessageType().equals(MessageTypes.MESSAGE_SELL.toString()))
+                    sellToMarketLogic(ctx, BoSMsg);
+                else
+                    buyFromMarketLogic(ctx, BoSMsg);
             }
+        }
+
+        private void    sellToMarketLogic(ChannelHandlerContext ctx, BuyOrSell BoS)
+        {
+            if (BoS.getQuantity() < 10 || BoS.getQuantity() > 1000)
+            {
+                if (BoS.getPrice() > 5000)
+                {
+                    System.out.println("Reject. That's just too expensive.");
+                    BoS.setMessageAction(MessageTypes.MESSAGE_REJECT.toString());
+                }
+                else
+                {
+                    System.out.println("EXECUTE. Pleasure doing business.");
+                    BoS.setMessageAction(MessageTypes.MESSAGE_EXECUTE.toString());
+                }
+            }
+            else
+            {
+                System.out.println("REJECT. You must be mad, that's not worth it!");
+                BoS.setMessageAction(MessageTypes.MESSAGE_REJECT.toString());
+            }
+            BoS.setNewChecksum();
+            ctx.writeAndFlush(BoS);
+        }
+
+        private void    buyFromMarketLogic(ChannelHandlerContext ctx, BuyOrSell BoS)
+        {
+            System.out.println("I ain't buying shit pal!");
+            BoS.setMessageAction(MessageTypes.MESSAGE_REJECT.toString());
+            BoS.setNewChecksum();
+            ctx.writeAndFlush(BoS);
         }
 
         private String getUserInput() throws Exception
@@ -140,8 +176,7 @@ public class Client implements Runnable{
                 else if (inputs[0].toLowerCase().equals("sell"))
                     outMsg = new BuyOrSell(MessageTypes.MESSAGE_SELL.toString(), marketId, "-", ID, instrument, quantity, price);
                 outMsg.setNewChecksum();
-                System.out.println(outMsg);
-
+                System.out.println("Sending message to router...");
                 ctx.writeAndFlush(outMsg);
             }
             catch(Exception e)

@@ -12,34 +12,33 @@ public class MyDecoder extends ReplayingDecoder {
     private final Charset charset = Charset.forName("UTF-8");
 
     @Override
-    protected void decode(ChannelHandlerContext ctx, ByteBuf in, List<Object> outMsg) throws Exception
+    protected void decode(ChannelHandlerContext ctx, ByteBuf inMsg, List<Object> outMsg) throws Exception
     {
         Fix msg = new Fix();
-        msg.setMessageType(in.readCharSequence(in.readInt(), charset).toString());
+        msg.setMessageType(inMsg.readCharSequence(inMsg.readInt(), charset).toString());
         if (msg.getMessageType().equals(MessageTypes.MESSAGE_ACCEPT_CONNECTION.toString()))
         {
 
             AcceptConnection con = new AcceptConnection();
             con.setMessageType(msg.getMessageType());
-            con.setId(in.readInt());
-            con.setChecksum(in.readCharSequence(in.readInt(), charset).toString());
+            con.setId(inMsg.readInt());
+            con.setChecksum(inMsg.readCharSequence(inMsg.readInt(), charset).toString());
             outMsg.add(con);
 
         }
         else if (msg.getMessageType().equals(MessageTypes.MESSAGE_BUY.toString()) ||
                 msg.getMessageType().equals(MessageTypes.MESSAGE_SELL.toString()))
         {
-            BuyOrSell ret = new BuyOrSell();
-            ret.setMessageType(msg.getMessageType());
-            ret.setMessageAction(in.readCharSequence(in.readInt(), charset).toString());
-            ret.setId(in.readInt());
-            ret.setInstrument(in.readCharSequence(in.readInt(), charset).toString());
-            ret.setMarketId(in.readInt());
-            ret.setQuantity(in.readInt());
-            ret.setPrice(in.readInt());
-            ret.setNewChecksum();
-            System.out.println(ret);
-            outMsg.add(ret);
+            BuyOrSell BoS = new BuyOrSell();
+            BoS.setMessageType(msg.getMessageType());
+            BoS.setMessageAction(inMsg.readCharSequence(inMsg.readInt(), charset).toString());
+            BoS.setId(inMsg.readInt());
+            BoS.setInstrument(inMsg.readCharSequence(inMsg.readInt(), charset).toString());
+            BoS.setMarketId(inMsg.readInt());
+            BoS.setQuantity(inMsg.readInt());
+            BoS.setPrice(inMsg.readInt());
+            BoS.setNewChecksum();
+            outMsg.add(BoS);
         }
     }
 }

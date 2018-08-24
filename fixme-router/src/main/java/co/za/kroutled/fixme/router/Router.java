@@ -100,10 +100,10 @@ public class Router implements Runnable {
                 BuyOrSell BoS = (BuyOrSell)msg;
                 try
                 {
-                    System.out.println("lets have a wee look");
-                    System.out.println(BoS);
-                    channelFromTable(BoS.getMarketId()).channel().writeAndFlush(BoS);
                     System.out.println("Making request to Market: " + BoS.getMarketId());
+                    System.out.println("wtf");
+                    marketChannelFromTable(BoS.getMarketId()).channel().writeAndFlush(BoS);
+                    System.out.println(BoS);
                 }
                 catch (Exception e)
                 {
@@ -129,7 +129,6 @@ public class Router implements Runnable {
             uniqueID = uniqueID.concat(tempMoB);
             con.setId(Integer.valueOf(uniqueID));
             con.setNewChecksum();
-            //ctx.writeAndFlush(ctx);
             ctx.writeAndFlush(con);
             routingTable.put(Integer.valueOf(uniqueID), ctx);
             System.out.println("Assigned unique ID " + uniqueID + " to " + ctx.channel().remoteAddress());
@@ -166,7 +165,7 @@ public class Router implements Runnable {
 
     }
 
-    private ChannelHandlerContext channelFromTable(int id)
+    private ChannelHandlerContext marketChannelFromTable(int id)
     {
         return routingTable.get(id);
     }
