@@ -14,7 +14,6 @@ public class AcceptConnectionEncoder extends MessageToByteEncoder<AcceptConnecti
     {
         if (msg.getMessageType().equals(MessageTypes.MESSAGE_ACCEPT_CONNECTION.toString()))
         {
-            System.out.println("encoding...");
             outMsg.writeInt(msg.getTypeLength());
             outMsg.writeCharSequence(msg.getMessageType(), charset);
             if (msg.getMessageType().equals(MessageTypes.MESSAGE_ACCEPT_CONNECTION.toString()))

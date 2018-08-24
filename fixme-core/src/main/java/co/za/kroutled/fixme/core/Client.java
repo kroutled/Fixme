@@ -110,7 +110,7 @@ public class Client implements Runnable{
                 String userInput = getUserInput();
                 if (userInput.length() == 0)
                     throw new Exception("Empty input");
-                else if (clientType.equals("broker"))
+                else if (clientType.equals("Broker"))
                     brokerInputHandler(ctx, userInput);
                 ctx.writeAndFlush(userInput);
             }
@@ -129,22 +129,26 @@ public class Client implements Runnable{
             {
                 if (inputs.length != 5)
                     throw new Exception();
+
+                BuyOrSell outMsg = null;
+                int     marketId = Integer.valueOf(inputs[1]);
+                String  instrument = inputs[2];
+                int     quantity = Integer.valueOf(inputs[3]);
+                int     price = Integer.valueOf(inputs[4]);
+                if (inputs[0].toLowerCase().equals("buy"))
+                    outMsg = new BuyOrSell(MessageTypes.MESSAGE_BUY.toString(), marketId, "-", ID, instrument, quantity, price);
+                else if (inputs[0].toLowerCase().equals("sell"))
+                    outMsg = new BuyOrSell(MessageTypes.MESSAGE_SELL.toString(), marketId, "-", ID, instrument, quantity, price);
+                outMsg.setNewChecksum();
+                System.out.println(outMsg);
+
+                ctx.writeAndFlush(outMsg);
             }
             catch(Exception e)
             {
                 System.out.println("Invalid input");
+                writeToChannel(ctx);
             }
-            BuyOrSell outMsg = null;
-            int     marketId = Integer.valueOf(inputs[1]);
-            String  instrument = inputs[2];
-            int     quantity = Integer.valueOf(inputs[3]);
-            int     price = Integer.valueOf(inputs[4]);
-            if (inputs[0].toLowerCase().equals("buy"))
-                outMsg = new BuyOrSell(MessageTypes.MESSAGE_BUY.toString(), marketId, "-", ID, instrument, quantity, price);
-            else if (inputs[0].toLowerCase().equals("sell"))
-                outMsg = new BuyOrSell(MessageTypes.MESSAGE_SELL.toString(), marketId, "-", ID, instrument, quantity, price);
-            outMsg.setNewChecksum();
-            ctx.writeAndFlush(outMsg);
         }
 
         @Override

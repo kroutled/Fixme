@@ -3,32 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="40cbebb0-6e8c-4cb6-8bee-d67f882bf8dd" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fixme-broker/target/fixme-broker-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/fixme-broker/target/fixme-broker-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fixme-broker/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/fixme-broker/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fixme-broker/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/fixme-broker/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fixme-core/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/fixme-core/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fixme-core/src/main/java/co/za/kroutled/fixme/core/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/fixme-core/src/main/java/co/za/kroutled/fixme/core/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fixme-core/src/main/java/co/za/kroutled/fixme/core/decoders/MyDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/fixme-core/src/main/java/co/za/kroutled/fixme/core/decoders/MyDecoder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fixme-core/src/main/java/co/za/kroutled/fixme/core/encoders/AcceptConnectionEncoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/fixme-core/src/main/java/co/za/kroutled/fixme/core/encoders/AcceptConnectionEncoder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fixme-core/src/main/java/co/za/kroutled/fixme/core/encoders/BoSEncoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/fixme-core/src/main/java/co/za/kroutled/fixme/core/encoders/BoSEncoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fixme-core/src/main/java/co/za/kroutled/fixme/core/messages/AcceptConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/fixme-core/src/main/java/co/za/kroutled/fixme/core/messages/AcceptConnection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fixme-core/src/main/java/co/za/kroutled/fixme/core/messages/BuyOrSell.java" beforeDir="false" afterPath="$PROJECT_DIR$/fixme-core/src/main/java/co/za/kroutled/fixme/core/messages/BuyOrSell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fixme-core/target/classes/co/za/kroutled/fixme/core/Client$clientHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/fixme-core/target/classes/co/za/kroutled/fixme/core/Client$clientHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fixme-core/target/classes/co/za/kroutled/fixme/core/encoders/AcceptConnectionEncoder.class" beforeDir="false" afterPath="$PROJECT_DIR$/fixme-core/target/classes/co/za/kroutled/fixme/core/encoders/AcceptConnectionEncoder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fixme-core/target/classes/co/za/kroutled/fixme/core/encoders/BoSEncoder.class" beforeDir="false" afterPath="$PROJECT_DIR$/fixme-core/target/classes/co/za/kroutled/fixme/core/encoders/BoSEncoder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fixme-core/target/fixme-core-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/fixme-core/target/fixme-core-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fixme-core/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/fixme-core/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fixme-core/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/fixme-core/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fixme-market/target/fixme-market-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/fixme-market/target/fixme-market-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fixme-market/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/fixme-market/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fixme-market/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/fixme-market/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fixme-router/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/fixme-router/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fixme-core/target/classes/co/za/kroutled/fixme/core/messages/BuyOrSell.class" beforeDir="false" afterPath="$PROJECT_DIR$/fixme-core/target/classes/co/za/kroutled/fixme/core/messages/BuyOrSell.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fixme-router/src/main/java/co/za/kroutled/fixme/router/Router.java" beforeDir="false" afterPath="$PROJECT_DIR$/fixme-router/src/main/java/co/za/kroutled/fixme/router/Router.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fixme-router/target/classes/co/za/kroutled/fixme/router/Router$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/fixme-router/target/classes/co/za/kroutled/fixme/router/Router$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fixme-router/target/classes/co/za/kroutled/fixme/router/Router$ServerHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/fixme-router/target/classes/co/za/kroutled/fixme/router/Router$ServerHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fixme-router/target/classes/co/za/kroutled/fixme/router/Router.class" beforeDir="false" afterPath="$PROJECT_DIR$/fixme-router/target/classes/co/za/kroutled/fixme/router/Router.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fixme-router/target/fixme-router-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/fixme-router/target/fixme-router-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fixme-router/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/fixme-router/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fixme-router/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/fixme-router/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -45,27 +29,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Router.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Router.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/fixme-router/src/main/java/co/za/kroutled/fixme/router/Router.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="102" column="17" lean-forward="true" selection-start-line="102" selection-start-column="17" selection-end-line="102" selection-end-column="17" />
+            <state relative-caret-position="430">
+              <caret line="114" column="13" selection-start-line="114" selection-start-column="13" selection-end-line="114" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2219#2784#0" expanded="true" />
-                <element signature="e#2783#2784#0" expanded="true" />
-                <element signature="e#6547#6548#0" expanded="true" />
-                <element signature="e#6590#6591#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AcceptConnectionEncoder.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fixme-core/src/main/java/co/za/kroutled/fixme/core/encoders/AcceptConnectionEncoder.java">
+      <file leaf-file-name="Client.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fixme-core/src/main/java/co/za/kroutled/fixme/core/Client.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="20" lean-forward="true" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
+            <state relative-caret-position="1805">
+              <caret line="134" column="47" lean-forward="true" selection-start-line="134" selection-start-column="37" selection-end-line="134" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -76,11 +56,8 @@
       <file leaf-file-name="BoSEncoder.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fixme-core/src/main/java/co/za/kroutled/fixme/core/encoders/BoSEncoder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="225">
+              <caret line="21" column="34" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -88,26 +65,8 @@
       <file leaf-file-name="BuyOrSell.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fixme-core/src/main/java/co/za/kroutled/fixme/core/messages/BuyOrSell.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="11" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MD5hash.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fixme-core/src/main/java/co/za/kroutled/fixme/core/MD5hash.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Fix.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fixme-core/src/main/java/co/za/kroutled/fixme/core/messages/Fix.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="41" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
+            <state relative-caret-position="192">
+              <caret line="22" column="33" lean-forward="true" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -115,44 +74,11 @@
       <file leaf-file-name="MyDecoder.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fixme-core/src/main/java/co/za/kroutled/fixme/core/decoders/MyDecoder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="58" lean-forward="true" selection-start-line="21" selection-start-column="58" selection-end-line="21" selection-end-column="58" />
+            <state relative-caret-position="383">
+              <caret line="35" column="85" lean-forward="true" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="85" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Client.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/fixme-core/src/main/java/co/za/kroutled/fixme/core/Client.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="526">
-              <caret line="137" column="58" lean-forward="true" selection-start-line="137" selection-start-column="58" selection-end-line="137" selection-end-column="58" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Broker.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fixme-broker/src/main/java/co/za/kroutled/fixme/broker/Broker.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="31" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AcceptConnection.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fixme-core/src/main/java/co/za/kroutled/fixme/core/messages/AcceptConnection.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="32" column="28" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -170,6 +96,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>encoder</find>
+      <find>instrument</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -193,13 +120,13 @@
         <option value="$PROJECT_DIR$/fixme-core/src/main/java/co/za/kroutled/fixme/core/messages/acceptConnection.java" />
         <option value="$PROJECT_DIR$/fixme-core/src/main/java/co/za/kroutled/fixme/core/encoders/AcceptConnEncoder.java" />
         <option value="$PROJECT_DIR$/fixme-core/src/main/java/co/za/kroutled/fixme/core/decoders/Decoder.java" />
-        <option value="$PROJECT_DIR$/fixme-core/src/main/java/co/za/kroutled/fixme/core/encoders/BoSEncoder.java" />
         <option value="$PROJECT_DIR$/fixme-core/src/main/java/co/za/kroutled/fixme/core/messages/AcceptConnection.java" />
-        <option value="$PROJECT_DIR$/fixme-core/src/main/java/co/za/kroutled/fixme/core/encoders/AcceptConnectionEncoder.java" />
-        <option value="$PROJECT_DIR$/fixme-core/src/main/java/co/za/kroutled/fixme/core/decoders/MyDecoder.java" />
-        <option value="$PROJECT_DIR$/fixme-router/src/main/java/co/za/kroutled/fixme/router/Router.java" />
-        <option value="$PROJECT_DIR$/fixme-core/src/main/java/co/za/kroutled/fixme/core/messages/BuyOrSell.java" />
         <option value="$PROJECT_DIR$/fixme-core/src/main/java/co/za/kroutled/fixme/core/Client.java" />
+        <option value="$PROJECT_DIR$/fixme-core/src/main/java/co/za/kroutled/fixme/core/encoders/AcceptConnectionEncoder.java" />
+        <option value="$PROJECT_DIR$/fixme-core/src/main/java/co/za/kroutled/fixme/core/encoders/BoSEncoder.java" />
+        <option value="$PROJECT_DIR$/fixme-core/src/main/java/co/za/kroutled/fixme/core/decoders/MyDecoder.java" />
+        <option value="$PROJECT_DIR$/fixme-core/src/main/java/co/za/kroutled/fixme/core/messages/BuyOrSell.java" />
+        <option value="$PROJECT_DIR$/fixme-router/src/main/java/co/za/kroutled/fixme/router/Router.java" />
       </list>
     </option>
   </component>
@@ -231,100 +158,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="fixme" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Fixme" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fixme" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Fixme" type="462c0819:PsiDirectoryNode" />
-              <item name="fixme-router" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fixme" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Fixme" type="462c0819:PsiDirectoryNode" />
-              <item name="fixme-router" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fixme" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Fixme" type="462c0819:PsiDirectoryNode" />
-              <item name="fixme-router" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fixme" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Fixme" type="462c0819:PsiDirectoryNode" />
-              <item name="fixme-router" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fixme" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Fixme" type="462c0819:PsiDirectoryNode" />
-              <item name="fixme-router" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="co" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fixme" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Fixme" type="462c0819:PsiDirectoryNode" />
-              <item name="fixme-router" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="co" type="462c0819:PsiDirectoryNode" />
-              <item name="za" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fixme" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Fixme" type="462c0819:PsiDirectoryNode" />
-              <item name="fixme-router" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="co" type="462c0819:PsiDirectoryNode" />
-              <item name="za" type="462c0819:PsiDirectoryNode" />
-              <item name="kroutled" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fixme" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Fixme" type="462c0819:PsiDirectoryNode" />
-              <item name="fixme-router" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="co" type="462c0819:PsiDirectoryNode" />
-              <item name="za" type="462c0819:PsiDirectoryNode" />
-              <item name="kroutled" type="462c0819:PsiDirectoryNode" />
-              <item name="fixme" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fixme" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Fixme" type="462c0819:PsiDirectoryNode" />
-              <item name="fixme-router" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="co" type="462c0819:PsiDirectoryNode" />
-              <item name="za" type="462c0819:PsiDirectoryNode" />
-              <item name="kroutled" type="462c0819:PsiDirectoryNode" />
-              <item name="fixme" type="462c0819:PsiDirectoryNode" />
-              <item name="router" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Scope" />
-      <pane id="AndroidView" />
       <pane id="PackagesPane">
         <subPane>
           <expand>
@@ -438,6 +272,45 @@
             </path>
             <path>
               <item name="fixme" type="58d84e3e:PackageViewProjectNode" />
+              <item name="fixme-market" type="616d4139:PackageViewModuleNode" />
+            </path>
+            <path>
+              <item name="fixme" type="58d84e3e:PackageViewProjectNode" />
+              <item name="fixme-market" type="616d4139:PackageViewModuleNode" />
+              <item name="co" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="fixme" type="58d84e3e:PackageViewProjectNode" />
+              <item name="fixme-market" type="616d4139:PackageViewModuleNode" />
+              <item name="co" type="1f31426a:PackageElementNode" />
+              <item name="za" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="fixme" type="58d84e3e:PackageViewProjectNode" />
+              <item name="fixme-market" type="616d4139:PackageViewModuleNode" />
+              <item name="co" type="1f31426a:PackageElementNode" />
+              <item name="za" type="1f31426a:PackageElementNode" />
+              <item name="kroutled" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="fixme" type="58d84e3e:PackageViewProjectNode" />
+              <item name="fixme-market" type="616d4139:PackageViewModuleNode" />
+              <item name="co" type="1f31426a:PackageElementNode" />
+              <item name="za" type="1f31426a:PackageElementNode" />
+              <item name="kroutled" type="1f31426a:PackageElementNode" />
+              <item name="fixme" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="fixme" type="58d84e3e:PackageViewProjectNode" />
+              <item name="fixme-market" type="616d4139:PackageViewModuleNode" />
+              <item name="co" type="1f31426a:PackageElementNode" />
+              <item name="za" type="1f31426a:PackageElementNode" />
+              <item name="kroutled" type="1f31426a:PackageElementNode" />
+              <item name="fixme" type="1f31426a:PackageElementNode" />
+              <item name="market" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="fixme" type="58d84e3e:PackageViewProjectNode" />
               <item name="fixme-router" type="616d4139:PackageViewModuleNode" />
             </path>
             <path>
@@ -479,6 +352,99 @@
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="fixme" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Fixme" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fixme" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Fixme" type="462c0819:PsiDirectoryNode" />
+              <item name="fixme-router" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fixme" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Fixme" type="462c0819:PsiDirectoryNode" />
+              <item name="fixme-router" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fixme" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Fixme" type="462c0819:PsiDirectoryNode" />
+              <item name="fixme-router" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fixme" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Fixme" type="462c0819:PsiDirectoryNode" />
+              <item name="fixme-router" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fixme" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Fixme" type="462c0819:PsiDirectoryNode" />
+              <item name="fixme-router" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="co" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fixme" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Fixme" type="462c0819:PsiDirectoryNode" />
+              <item name="fixme-router" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="co" type="462c0819:PsiDirectoryNode" />
+              <item name="za" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fixme" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Fixme" type="462c0819:PsiDirectoryNode" />
+              <item name="fixme-router" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="co" type="462c0819:PsiDirectoryNode" />
+              <item name="za" type="462c0819:PsiDirectoryNode" />
+              <item name="kroutled" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fixme" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Fixme" type="462c0819:PsiDirectoryNode" />
+              <item name="fixme-router" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="co" type="462c0819:PsiDirectoryNode" />
+              <item name="za" type="462c0819:PsiDirectoryNode" />
+              <item name="kroutled" type="462c0819:PsiDirectoryNode" />
+              <item name="fixme" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fixme" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Fixme" type="462c0819:PsiDirectoryNode" />
+              <item name="fixme-router" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="co" type="462c0819:PsiDirectoryNode" />
+              <item name="za" type="462c0819:PsiDirectoryNode" />
+              <item name="kroutled" type="462c0819:PsiDirectoryNode" />
+              <item name="fixme" type="462c0819:PsiDirectoryNode" />
+              <item name="router" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -502,7 +468,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Router">
+  <component name="RunManager" selected="Application.Market">
     <configuration name="Broker" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="co.za.kroutled.fixme.broker.Broker" />
       <module name="fixme-broker" />
@@ -584,9 +550,9 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Router" />
-        <item itemvalue="Application.Broker" />
         <item itemvalue="Application.Market" />
+        <item itemvalue="Application.Broker" />
+        <item itemvalue="Application.Router" />
       </list>
     </recent_temporary>
   </component>
@@ -610,12 +576,13 @@
       <workItem from="1534762117315" duration="7871000" />
       <workItem from="1534835008392" duration="7624000" />
       <workItem from="1534849275011" duration="4484000" />
-      <workItem from="1535007579016" duration="7811000" />
+      <workItem from="1535007579016" duration="8133000" />
+      <workItem from="1535096985472" duration="5230000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="71267000" />
+    <option name="totallyTimeSpent" value="76819000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -632,25 +599,25 @@
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32935324" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.32935324" />
-      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32935324" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info id="Image Layers" order="2" />
-      <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="right" id="Maven Projects" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="right" id="Maven Projects" order="7" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32935324" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.22089553" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32238805" />
-      <window_info id="Capture Tool" order="2" />
-      <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12886049" />
-      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32935324" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32238805" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.17910448" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info id="Designer" order="3" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14270501" />
+      <window_info anchor="right" id="Database" order="6" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info id="UI Designer" order="2" />
-      <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info id="UI Designer" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -659,36 +626,6 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" />
     </layout>
-    <layout-to-restore>
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.17910448" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25825346" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32935324" />
-      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info id="UI Designer" order="4" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="right" id="Database" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32238805" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32935324" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.32935324" />
-      <window_info anchor="right" id="Maven Projects" order="8" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -742,10 +679,6 @@
           <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2219#2784#0" expanded="true" />
-            <element signature="e#2783#2784#0" expanded="true" />
-            <element signature="e#6547#6548#0" expanded="true" />
-            <element signature="e#6590#6591#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -821,10 +754,6 @@
           <caret line="15" column="6" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2219#2784#0" expanded="true" />
-            <element signature="e#2783#2784#0" expanded="true" />
-            <element signature="e#6547#6548#0" expanded="true" />
-            <element signature="e#6590#6591#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -850,10 +779,6 @@
           <caret line="29" selection-start-line="29" selection-end-line="29" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2219#2784#0" expanded="true" />
-            <element signature="e#2783#2784#0" expanded="true" />
-            <element signature="e#6547#6548#0" expanded="true" />
-            <element signature="e#6590#6591#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -890,10 +815,6 @@
           <caret line="28" selection-start-line="28" selection-end-line="28" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2219#2784#0" expanded="true" />
-            <element signature="e#2783#2784#0" expanded="true" />
-            <element signature="e#6547#6548#0" expanded="true" />
-            <element signature="e#6590#6591#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -959,33 +880,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fixme-core/src/main/java/co/za/kroutled/fixme/core/messages/Fix.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="41" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fixme-core/src/main/java/co/za/kroutled/fixme/core/decoders/MyDecoder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="58" lean-forward="true" selection-start-line="21" selection-start-column="58" selection-end-line="21" selection-end-column="58" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fixme-core/src/main/java/co/za/kroutled/fixme/core/encoders/AcceptConnectionEncoder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="20" lean-forward="true" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fixme-core/src/main/java/co/za/kroutled/fixme/core/messages/AcceptConnection.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -995,7 +889,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/fixme-broker/src/main/java/co/za/kroutled/fixme/broker/Broker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
+        <state relative-caret-position="120">
           <caret line="14" column="31" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1003,34 +897,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fixme-core/src/main/java/co/za/kroutled/fixme/core/encoders/BoSEncoder.java">
+    <entry file="file://$PROJECT_DIR$/fixme-core/src/main/java/co/za/kroutled/fixme/core/messages/Fix.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fixme-router/src/main/java/co/za/kroutled/fixme/router/Router.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="102" column="17" lean-forward="true" selection-start-line="102" selection-start-column="17" selection-end-line="102" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2219#2784#0" expanded="true" />
-            <element signature="e#2783#2784#0" expanded="true" />
-            <element signature="e#6547#6548#0" expanded="true" />
-            <element signature="e#6590#6591#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fixme-core/src/main/java/co/za/kroutled/fixme/core/messages/BuyOrSell.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="11" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
+        <state relative-caret-position="135">
+          <caret line="9" column="41" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
         </state>
       </provider>
     </entry>
@@ -1041,10 +911,54 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/fixme-core/src/main/java/co/za/kroutled/fixme/core/encoders/AcceptConnectionEncoder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="9" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fixme-core/src/main/java/co/za/kroutled/fixme/core/encoders/BoSEncoder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="21" column="34" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fixme-core/src/main/java/co/za/kroutled/fixme/core/decoders/MyDecoder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="35" column="85" lean-forward="true" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="85" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/fixme-core/src/main/java/co/za/kroutled/fixme/core/Client.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="526">
-          <caret line="137" column="58" lean-forward="true" selection-start-line="137" selection-start-column="58" selection-end-line="137" selection-end-column="58" />
+        <state relative-caret-position="1805">
+          <caret line="134" column="47" lean-forward="true" selection-start-line="134" selection-start-column="37" selection-end-line="134" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fixme-core/src/main/java/co/za/kroutled/fixme/core/messages/BuyOrSell.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="22" column="33" lean-forward="true" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fixme-router/src/main/java/co/za/kroutled/fixme/router/Router.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="430">
+          <caret line="114" column="13" selection-start-line="114" selection-start-column="13" selection-end-line="114" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -88,7 +88,6 @@ public class Router implements Runnable {
         @Override
         public void channelRead(ChannelHandlerContext ctx, Object msg) {
             Fix message = (Fix)msg;
-            System.out.println(message);
 
             if (message.getMessageType().equals(MessageTypes.MESSAGE_ACCEPT_CONNECTION.toString())) {
 
@@ -101,6 +100,8 @@ public class Router implements Runnable {
                 BuyOrSell BoS = (BuyOrSell)msg;
                 try
                 {
+                    System.out.println("lets have a wee look");
+                    System.out.println(BoS);
                     channelFromTable(BoS.getMarketId()).channel().writeAndFlush(BoS);
                     System.out.println("Making request to Market: " + BoS.getMarketId());
                 }
@@ -112,7 +113,6 @@ public class Router implements Runnable {
                     ctx.writeAndFlush(BoS);
                 }
             }
-            //showTable();
         }
 
         @Override
@@ -123,7 +123,6 @@ public class Router implements Runnable {
 
         private void newConnection(ChannelHandlerContext ctx, Object msg)
         {
-            System.out.println("Test");
             AcceptConnection con = (AcceptConnection)msg;
             String uniqueID = ctx.channel().remoteAddress().toString().substring(11);
             String tempMoB = clientType.equals("Broker") ? "0" : "1";

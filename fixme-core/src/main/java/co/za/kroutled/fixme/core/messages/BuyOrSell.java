@@ -16,8 +16,10 @@ public class BuyOrSell extends Fix {
     {
         super(messageType, marketId);
         this.messageAction = messageAction;
+        this.actionLength = messageAction.length();
         this.id = id;
         this.instrument = instrument;
+        this.instrumentLength = instrument.length();
         this.quantity = quantity;
         this.price = price;
     }
@@ -55,10 +57,10 @@ public class BuyOrSell extends Fix {
         return this.instrument;
     }
 
-    public void setInstrument(String instrament)
+    public void setInstrument(String instrument)
     {
-        this.instrument = instrament;
-        this.instrumentLength = instrament.length();
+        this.instrument = instrument;
+        this.instrumentLength = instrument.length();
     }
 
     public int getInstrumentLength()
