@@ -74,7 +74,6 @@ public class Client implements Runnable{
         public void channelActive(ChannelHandlerContext ctx) {
             System.out.println(clientType + " is connecting to router..");
             AcceptConnection msg = new AcceptConnection(MessageTypes.MESSAGE_ACCEPT_CONNECTION.toString(), 0, 0);
-            System.out.println(msg);
             ctx.writeAndFlush(msg);
         }
 
@@ -86,13 +85,14 @@ public class Client implements Runnable{
                 AcceptConnection conMsg = (AcceptConnection)msg;
                 ID = conMsg.getId();
                 System.out.println(clientType + ": " + ID + " has connected to the router");
+
             }
             else if (message.getMessageType().equals(MessageTypes.MESSAGE_BUY.toString()) ||
                     message.getMessageType().equals(MessageTypes.MESSAGE_SELL.toString()))
             {
-                System.out.println("Message sent bro");
                 BuyOrSell BoSMsg = (BuyOrSell)msg;
-                System.out.println("Message sent bro");
+                if (checkForBrokerAnswerFromMarket(BoSMsg))
+                    return;
                 if (BoSMsg.getMessageType().equals(MessageTypes.MESSAGE_SELL.toString()))
                     sellToMarketLogic(ctx, BoSMsg);
                 else
@@ -100,9 +100,21 @@ public class Client implements Runnable{
             }
         }
 
+
+        private boolean checkForBrokerAnswerFromMarket(BuyOrSell ret) {
+            if (ret.getMessageAction().equals(MessageTypes.MESSAGE_EXECUTE.toString()) ||
+                    ret.getMessageAction().equals(MessageTypes.MESSAGE_REJECT.toString())) {
+                System.out.println("Answer for your request: " + ret.getMessageAction());
+                return true;
+            }
+            return false;
+        }
+
         private void    sellToMarketLogic(ChannelHandlerContext ctx, BuyOrSell BoS)
         {
-            if (BoS.getQuantity() < 10 || BoS.getQuantity() > 1000)
+            System.out.println(BoS.getQuantity());
+            System.out.println(BoS.getPrice());
+            if (BoS.getQuantity() > 10 || BoS.getQuantity() < 1000)
             {
                 if (BoS.getPrice() > 5000)
                 {
@@ -171,6 +183,7 @@ public class Client implements Runnable{
                 String  instrument = inputs[2];
                 int     quantity = Integer.valueOf(inputs[3]);
                 int     price = Integer.valueOf(inputs[4]);
+
                 if (inputs[0].toLowerCase().equals("buy"))
                     outMsg = new BuyOrSell(MessageTypes.MESSAGE_BUY.toString(), marketId, "-", ID, instrument, quantity, price);
                 else if (inputs[0].toLowerCase().equals("sell"))

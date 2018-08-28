@@ -19,7 +19,6 @@ public class BoSEncoder extends MessageToByteEncoder<BuyOrSell> {
         if (msg.getMessageType().equals(MessageTypes.MESSAGE_BUY.toString()) ||
                 msg.getMessageType().equals(MessageTypes.MESSAGE_SELL.toString()))
         {
-            System.out.println(msg);
             outMsg.writeInt(msg.getActionLength());
             outMsg.writeCharSequence(msg.getMessageAction(),charset);
             outMsg.writeInt(msg.getId());

@@ -5,8 +5,7 @@ import co.za.kroutled.fixme.core.Client;
 public class Market extends Client {
     public static void main(String args[]) throws Exception
     {
-        Market market = new Market(5001);
-        market.run();
+        new Market(5001).run();
     }
 
     Market(int port) throws Exception

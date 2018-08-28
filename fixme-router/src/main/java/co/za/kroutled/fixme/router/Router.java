@@ -64,7 +64,7 @@ public class Router implements Runnable {
 
                             pipeline.addLast(new MyDecoder());
                             pipeline.addLast(new AcceptConnectionEncoder());
-//                            pipeline.addLast(new BoSEncoder());
+                            pipeline.addLast(new BoSEncoder());
                             pipeline.addLast(new ServerHandler());
                         }
             }).option(ChannelOption.SO_REUSEADDR, true);
@@ -90,9 +90,7 @@ public class Router implements Runnable {
             Fix message = (Fix)msg;
 
             if (message.getMessageType().equals(MessageTypes.MESSAGE_ACCEPT_CONNECTION.toString())) {
-
                 newConnection(ctx, msg);
-
             }
             else if (message.getMessageType().equals(MessageTypes.MESSAGE_BUY.toString()) ||
                     message.getMessageType().equals(MessageTypes.MESSAGE_SELL.toString()))
@@ -101,9 +99,8 @@ public class Router implements Runnable {
                 try
                 {
                     System.out.println("Making request to Market: " + BoS.getMarketId());
-                    System.out.println("wtf");
-                    marketChannelFromTable(BoS.getMarketId()).channel().writeAndFlush(BoS);
-                    System.out.println(BoS);
+                    ChannelHandlerContext myCtx = marketChannelFromTable(BoS.getMarketId());
+                    myCtx.channel().writeAndFlush(msg);
                 }
                 catch (Exception e)
                 {
@@ -143,26 +140,12 @@ public class Router implements Runnable {
         }
     }
 
-//    private void showTable() throws IOException {
-//        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-//        String input = in.readLine();
-//        if (input.equals("table"))
-//        {
-//            if (routingTable != null)
-//            {
-//                for (HashMap.Entry<Integer, ChannelHandlerContext> entry : routingTable.entrySet())
-//                    System.out.println("[" + entry.getKey() + "] - " + isMarketOrBroker(entry.getKey().toString()));
-//            }
-//        }
-//    }
-
     private String isMarketOrBroker(String id)
     {
         if (id.substring(5).equals("0"))
             return "Broker";
         else
             return "Market";
-
     }
 
     private ChannelHandlerContext marketChannelFromTable(int id)
