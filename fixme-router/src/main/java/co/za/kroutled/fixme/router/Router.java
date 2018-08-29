@@ -99,6 +99,8 @@ public class Router implements Runnable {
                 try
                 {
                     System.out.println("Making request to Market: " + BoS.getMarketId());
+                    if (RejectedOrExecuted(BoS))
+                        return;
                     ChannelHandlerContext myCtx = marketChannelFromTable(BoS.getMarketId());
                     myCtx.channel().writeAndFlush(msg);
                 }
@@ -140,17 +142,26 @@ public class Router implements Runnable {
         }
     }
 
-    private String isMarketOrBroker(String id)
-    {
-        if (id.substring(5).equals("0"))
-            return "Broker";
-        else
-            return "Market";
-    }
+//    private String isMarketOrBroker(String id)
+//    {
+//        if (id.substring(5).equals("0"))
+//            return "Broker";
+//        else
+//            return "Market";
+//    }
 
     private ChannelHandlerContext marketChannelFromTable(int id)
     {
         return routingTable.get(id);
+    }
+
+    private boolean RejectedOrExecuted(BuyOrSell ret) {
+        if (ret.getMessageAction().equals(MessageTypes.MESSAGE_EXECUTE.toString()) ||
+                ret.getMessageAction().equals(MessageTypes.MESSAGE_REJECT.toString())) {
+            marketChannelFromTable(ret.getId()).writeAndFlush(ret);
+            return true;
+        }
+        return false;
     }
 
 }
